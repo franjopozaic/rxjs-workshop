@@ -1,4 +1,4 @@
-### Transformations
+****### Transformations
 
 #### pipe
 
@@ -16,11 +16,16 @@ const pipeline = pipe(
 #### Value transformation
 
 Map every emitter value: [map](https://rxjs-dev.firebaseapp.com/api/operators/map)  
+
+![](https://rxjs.dev/assets/images/marble-diagrams/map.png)
+
 Reduce: [scan](https://rxjs-dev.firebaseapp.com/api/operators/scan)
 
 #### Filtering
 
 By value: [filter](https://rxjs-dev.firebaseapp.com/api/operators/filter)  
-By order of appearance: [first](https://rxjs-dev.firebaseapp.com/api/operators/first), [take](https://rxjs-dev.firebaseapp.com/api/operators/take), [skip](https://rxjs-dev.firebaseapp.com/api/operators/skip)  
+![](https://rxjs.dev/assets/images/marble-diagrams/filter.png)
+By order of appearance: [first](https://rxjs-dev.firebaseapp.com/api/operators/first)  
+![](https://rxjs.dev/assets/images/marble-diagrams/first.png) [take](https://rxjs-dev.firebaseapp.com/api/operators/take), [skip](https://rxjs-dev.firebaseapp.com/api/operators/skip)  
 By comparing to previous values: [distinct](https://rxjs-dev.firebaseapp.com/api/operators/distinct)  
 By time passed between values: [debounceTime](https://rxjs-dev.firebaseapp.com/api/operators/debounceTime)
