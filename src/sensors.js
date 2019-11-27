@@ -9,23 +9,36 @@ import {
   share
 } from 'rxjs/operators';
 import { interval, combineLatest, timer } from 'rxjs';
+import { watch } from 'rxjs-watcher';
+
+/**
+ * The task is to create a dashboard on a plane that displays data from the sensors.
+ * The data comes in as streams. You have to display temperature, speed and height.
+ *
+ * 1. Display the data on the dashboard
+ * 2. Switch to farenheit, knots, feet
+ * 3. Avoid often display changes, display every 5 s
+ * 4. Add another dashboard, displaying only max/min values
+ */
 
 export function run() {
   createContainers();
 
-  const [temp$, windSpeed$, height$] = getStreams();
+  const [temp$, speed$, height$] = getStreams();
 
-  const sampleInterval$ = timer(0, 2000);
+  const sampleInterval$ = timer(0, 5000);
 
-  const dashboard$ = combineLatest(temp$, windSpeed$, height$).pipe(
-    distinctUntilChanged(),
+  const dashboard$ = combineLatest(temp$, speed$, height$).pipe(
+    spy('Combine latest'),
     map(([temp, wind, height]) => [toFarenheit(temp), toKnots(wind), toFeet(height)]),
-    sample(sampleInterval$)
+    spy('Converted units'),
+    sample(sampleInterval$),
+    spy('Sampled'),
   );
 
   const extremes$ = combineLatest(
     temp$.pipe(scan(min)),
-    windSpeed$.pipe(scan(max)),
+    speed$.pipe(scan(max)),
     height$.pipe(scan(max))
   ).pipe(sample(sampleInterval$));
 
@@ -33,7 +46,8 @@ export function run() {
   extremes$.subscribe(displayExtremes);
 }
 
-const spy = () => tap(console.log);
+const clog = () => tap(console.log);
+const spy = name => watch(name, 11);
 
 function toFarenheit(t) {
   return t;
@@ -51,7 +65,7 @@ function display([temp, wind, height]) {
   const t = document.createElement('p');
   t.innerHTML = 'Temperature: ' + (temp || '');
   const w = document.createElement('p');
-  w.innerHTML = 'Wind speed: ' + (wind || '');
+  w.innerHTML = 'Speed: ' + (wind || '');
   const h = document.createElement('p');
   h.innerHTML = 'Height: ' + (height || '');
 
@@ -66,7 +80,7 @@ function displayExtremes([temp, wind, height]) {
   const t = document.createElement('p');
   t.innerHTML = 'Min temperature: ' + (temp || '');
   const w = document.createElement('p');
-  w.innerHTML = 'Max wind speed: ' + (wind || '');
+  w.innerHTML = 'Max speed: ' + (wind || '');
   const h = document.createElement('p');
   h.innerHTML = 'Max height: ' + (height || '');
 
@@ -86,25 +100,28 @@ function min(currentMin, next) {
 }
 
 function getStreams() {
-  const temp$ = interval(1000).pipe(
+  const temp$ = interval(1320).pipe(
     map(_ => -20 + Math.random() * 10),
     map(Math.round),
-    share()
+    share(),
+    spy('Temp')
   );
 
-  const windSpeed$ = interval(3000).pipe(
-    map(_ => 20 + Math.random() * 10),
+  const speed$ = interval(3090).pipe(
+    map(_ => 500 + Math.random() * 10),
     map(Math.round),
-    share()
+    share(),
+    spy('Speed')
   );
 
-  const height$ = interval(5000).pipe(
+  const height$ = interval(4940).pipe(
     map(_ => 10000 + Math.random() * 10),
     map(Math.round),
-    share()
+    share(),
+    spy('Height')
   );
 
-  return [temp$, windSpeed$, height$];
+  return [temp$, speed$, height$];
 }
 
 function createContainers() {
