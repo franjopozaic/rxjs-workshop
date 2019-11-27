@@ -8,7 +8,7 @@ What are streams?
 
 * Sequence of events happening over time
 
-![](1_stream-diagram.png)
+![](images/1_stream-diagram.png)
 
 Why streams?
 
