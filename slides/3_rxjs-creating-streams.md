@@ -1,7 +1,3 @@
----
-output: pdf_document
----
-
 ## Creating streams
 
 #### Manual, from static values
