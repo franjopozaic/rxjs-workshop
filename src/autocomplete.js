@@ -9,7 +9,7 @@ import { countries } from './countries';
 
 const watchInterval = 10; //seconds
 
-export function runAutocompleteExample() {
+export function run() {
   const inputEl = createInputElement();
   createResultContainer();
   createLoadingContainer();

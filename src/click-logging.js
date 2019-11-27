@@ -8,7 +8,7 @@ import { fromEvent } from 'rxjs';
 
  const watchInterval = 10 //seconds
 
-export function runClickLoggingExemple() {
+export function run() {
   const [buttonOne, buttonTwo, buttonThree] = [
     createButton('button-one', 'Action 1'),
     createButton('button-two', 'Action 2'),

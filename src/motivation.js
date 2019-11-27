@@ -1,4 +1,4 @@
-export function runMotivationExample() {
+export function run() {
   let a = 1;
   let b = a * 10;
 

@@ -1,7 +1,3 @@
-import { runAutocompleteExample } from './autocomplete';
-import { runClickLoggingExemple } from './click-logging';
-import { runMotivationExample } from './motivation';
+import { run } from './motivation-rewrite';
 
-runMotivationExample();
-// runAutocompleteExample();
-// runClickLoggingExemple();
+run();
