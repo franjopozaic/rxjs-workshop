@@ -1,3 +1,3 @@
-import { run } from './motivation-rewrite';
+import { run } from './sensors';
 
 run();
