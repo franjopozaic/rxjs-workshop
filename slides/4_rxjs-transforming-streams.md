@@ -15,8 +15,8 @@ const pipeline = pipe(
 
 #### Value transformation
 
-Map every emitter value: _map_
-Reduce: _scan_
+Map every emitter value: [map](https://rxjs-dev.firebaseapp.com/api/operators/map)  
+Reduce: [scan](https://rxjs-dev.firebaseapp.com/api/operators/scan)
 
 #### Filtering
 
