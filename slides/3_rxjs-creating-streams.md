@@ -4,8 +4,8 @@ output: pdf_document
 
 ## Creating streams
 
-#### Manual, from static values - _of_ operator
-[https://rxjs-dev.firebaseapp.com/api/index/function/of]
+#### Manual, from static values
+[of](https://rxjs-dev.firebaseapp.com/api/index/function/of)
 
 ```javascript
 of(1)
@@ -14,13 +14,12 @@ of({ name: 'James' })
 of([1,2,3,4])
 ```
 
-_Question: what does the above code do?_
+#### Manual, dynamic
 
-#### Manual, dynamic - using _Subject_, _BehaviorSubject_, _ReplaySubject_ 
+[Subject](https://rxjs-dev.firebaseapp.com/api/index/class/Subject)  
+[BehaviorSubject](https://rxjs-dev.firebaseapp.com/api/index/class/BehaviorSubject)  
+[ReplaySubject](https://rxjs-dev.firebaseapp.com/api/index/class/ReplaySubject)
 
-[https://rxjs-dev.firebaseapp.com/api/index/class/Subject]
-
-[https://rxjs-dev.firebaseapp.com/api/index/class/BehaviorSubject]
 
 ```javascript
 const numbers$ = new Subject();
@@ -32,9 +31,10 @@ numbers$.next(2);
 numbers$.subscribe(console.log);
 ```
 
-_Question: what does the above code do?_
-
 #### Intervallic
+
+[interval](https://rxjs-dev.firebaseapp.com/api/index/function/interval)  
+[timer](https://rxjs-dev.firebaseapp.com/api/index/function/timer)
 
 ```javascript
 const numbers$ = interval(1000)
@@ -42,6 +42,8 @@ const numbers$ = timer(3000, 1000)
 ```
 
 #### From DOM events
+
+[fromEvent](https://rxjs-dev.firebaseapp.com/api/index/function/fromEvent)
 
 ```javascript
 const click$ = fromEvent(document, 'click')

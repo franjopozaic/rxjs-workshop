@@ -2,7 +2,7 @@
 
 What is it?
 
-From glossary (from https://rxjs-dev.firebaseapp.com/guide/overview)
+Glossary (from https://rxjs-dev.firebaseapp.com/guide/overview)
 
 ### Observable
 
