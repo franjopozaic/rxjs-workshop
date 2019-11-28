@@ -4,7 +4,7 @@ import { fromEvent } from 'rxjs';
 
 /**
  * Click logging
- * 
+ *
  * We have to know which buttons are users clicking.
  * Collect all relevant click data and send as http request.
  */
@@ -19,23 +19,6 @@ export function run() {
   document.body.appendChild(buttonOne);
   document.body.appendChild(buttonTwo);
   document.body.appendChild(buttonThree);
-
-  const click$ = fromEvent(document, 'click');
-
-  click$
-    .pipe(
-      map(x => x.target.id),
-      spy('All clicks'),
-      debounceTime(300),
-      spy('Debounced'),
-      filter(x => x != ''),
-      spy('Only with id present'),
-      bufferCount(5),
-      spy('Buffer 5')
-    )
-    .subscribe(() => {
-      // Call logging endpoint
-    });
 }
 
 export function createButton(id, title) {

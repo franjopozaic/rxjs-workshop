@@ -25,25 +25,6 @@ export function run() {
   createContainers();
 
   const [temp$, speed$, height$] = getStreams();
-
-  const sampleInterval$ = timer(0, 5000);
-
-  const dashboard$ = combineLatest(temp$, speed$, height$).pipe(
-    spy('Combine latest'),
-    map(([temp, wind, height]) => [toFarenheit(temp), toKnots(wind), toFeet(height)]),
-    spy('Converted units'),
-    sample(sampleInterval$),
-    spy('Sampled'),
-  );
-
-  const extremes$ = combineLatest(
-    temp$.pipe(scan(min)),
-    speed$.pipe(scan(max)),
-    height$.pipe(scan(max))
-  ).pipe(sample(sampleInterval$));
-
-  dashboard$.subscribe(display);
-  extremes$.subscribe(displayExtremes);
 }
 
 const clog = () => tap(console.log);
@@ -89,14 +70,6 @@ function displayExtremes([temp, wind, height]) {
   container.appendChild(t);
   container.appendChild(w);
   container.appendChild(h);
-}
-
-function max(currentMax, next) {
-  return next > currentMax ? next : currentMax;
-}
-
-function min(currentMin, next) {
-  return next < currentMin ? next : currentMin;
 }
 
 function getStreams() {

@@ -11,23 +11,6 @@ export function run() {
   const inputEl = createInputElement();
   createResultContainer();
   createLoadingContainer();
-
-  fromEvent(inputEl, 'input')
-    .pipe(
-      map(x => x.target.value),
-      spy('Input events - every keypress is an event'),
-      debounceTime(500),
-      spy('Debounced - events emitted in close time proximity are filtered out'),
-      tap(showLoading),
-      switchMap(query => getCountries(query)),
-      tap(hideLoading),
-      spy('Result'),
-      map(results => results.slice(0, 5)),
-      spy('Minimized result'),
-      map(([query, ...countries]) => `Result for "${query}": ${countries.join(', ')}`),
-      spy('Displayed string')
-    )
-    .subscribe(x => displayResult(x));
 }
 
 function createInputElement() {
