@@ -41,6 +41,6 @@ By comparing to previous values:
 [distinctUntilChanged](https://rxjs-dev.firebaseapp.com/api/operators/distinctUntilChanged)  
 ![](https://rxjs-dev.firebaseapp.com/assets/images/marble-diagrams/distinctUntilChanged.png)
 
-By time passed between values: 
+By time passed between new values: 
 [debounceTime](https://rxjs-dev.firebaseapp.com/api/operators/debounceTime)
 ![](https://rxjs-dev.firebaseapp.com/assets/images/marble-diagrams/debounceTime.png)

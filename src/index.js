@@ -1,3 +1,3 @@
-import { run } from './sensors';
+import { run } from './transforming-streams';
 
 run();
