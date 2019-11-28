@@ -17,5 +17,6 @@ https://chrome.google.com/webstore/detail/rxjs-watcher/dfpjfjpfpjjgoeackldilanad
 ## Start
 
 ```
+npm install
 npm run start
 ```
