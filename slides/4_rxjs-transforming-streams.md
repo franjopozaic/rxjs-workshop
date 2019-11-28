@@ -1,4 +1,4 @@
-****### Transformations
+### Operators
 
 #### pipe
 
@@ -23,9 +23,24 @@ Reduce: [scan](https://rxjs-dev.firebaseapp.com/api/operators/scan)
 
 #### Filtering
 
-By value: [filter](https://rxjs-dev.firebaseapp.com/api/operators/filter)  
+By value: 
+[filter](https://rxjs-dev.firebaseapp.com/api/operators/filter)  
 ![](https://rxjs.dev/assets/images/marble-diagrams/filter.png)
-By order of appearance: [first](https://rxjs-dev.firebaseapp.com/api/operators/first)  
-![](https://rxjs.dev/assets/images/marble-diagrams/first.png) [take](https://rxjs-dev.firebaseapp.com/api/operators/take), [skip](https://rxjs-dev.firebaseapp.com/api/operators/skip)  
-By comparing to previous values: [distinct](https://rxjs-dev.firebaseapp.com/api/operators/distinct)  
-By time passed between values: [debounceTime](https://rxjs-dev.firebaseapp.com/api/operators/debounceTime)
+
+By order of appearance:  
+[first](https://rxjs-dev.firebaseapp.com/api/operators/first)  
+![](https://rxjs.dev/assets/images/marble-diagrams/first.png) 
+
+[take](https://rxjs-dev.firebaseapp.com/api/operators/take)  
+![](https://rxjs-dev.firebaseapp.com/assets/images/marble-diagrams/take.png)
+
+[skip](https://rxjs-dev.firebaseapp.com/api/operators/skip)  
+![](https://rxjs-dev.firebaseapp.com/assets/images/marble-diagrams/skip.png)
+
+By comparing to previous values: 
+[distinctUntilChanged](https://rxjs-dev.firebaseapp.com/api/operators/distinctUntilChanged)  
+![](https://rxjs-dev.firebaseapp.com/assets/images/marble-diagrams/distinctUntilChanged.png)
+
+By time passed between values: 
+[debounceTime](https://rxjs-dev.firebaseapp.com/api/operators/debounceTime)
+![](https://rxjs-dev.firebaseapp.com/assets/images/marble-diagrams/debounceTime.png)
