@@ -13,8 +13,6 @@ of([1,2,3,4])
 #### Manual, dynamic
 
 [Subject](https://rxjs-dev.firebaseapp.com/api/index/class/Subject)  
-[BehaviorSubject](https://rxjs-dev.firebaseapp.com/api/index/class/BehaviorSubject)  
-[ReplaySubject](https://rxjs-dev.firebaseapp.com/api/index/class/ReplaySubject)
 
 
 ```javascript
@@ -34,7 +32,6 @@ numbers$.subscribe(console.log);
 
 ```javascript
 const numbers$ = interval(1000)
-const numbers$ = timer(3000, 1000)
 ```
 
 #### From DOM events
