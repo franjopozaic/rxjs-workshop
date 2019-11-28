@@ -4,9 +4,10 @@ import { fromEvent } from 'rxjs';
 
 /**
  * Click logging
+ * 
+ * We have to know which buttons are users clicking.
+ * Collect all relevant click data and send as http request.
  */
-
- const watchInterval = 10 //seconds
 
 export function run() {
   const [buttonOne, buttonTwo, buttonThree] = [
@@ -24,13 +25,13 @@ export function run() {
   click$
     .pipe(
       map(x => x.target.id),
-      watch('All clicks', watchInterval),
+      spy('All clicks'),
       debounceTime(300),
-      watch('Debounced', watchInterval),
+      spy('Debounced'),
       filter(x => x != ''),
-      watch('Only with id present', watchInterval),
+      spy('Only with id present'),
       bufferCount(5),
-      watch('Buffer 5', watchInterval)
+      spy('Buffer 5')
     )
     .subscribe(() => {
       // Call logging endpoint
@@ -44,9 +45,4 @@ export function createButton(id, title) {
   return button;
 }
 
-// const random$ = interval(200).pipe(
-//   map(_ => Math.random()),
-//   watch('Random', 10),
-//   filter(x => x > 0.9),
-//   watch('Filtered', 10)
-// );
+const spy = name => watch(name, 10);

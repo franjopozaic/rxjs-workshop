@@ -4,10 +4,8 @@ import { watch } from 'rxjs-watcher';
 import { countries } from './countries';
 
 /**
- * Autocomplete asynchronous
+ * Create an input element which queries countries on the fly
  */
-
-const watchInterval = 10; //seconds
 
 export function run() {
   const inputEl = createInputElement();
@@ -17,17 +15,17 @@ export function run() {
   fromEvent(inputEl, 'input')
     .pipe(
       map(x => x.target.value),
-      watch('Input events - every keypress is an event', watchInterval),
+      spy('Input events - every keypress is an event'),
       debounceTime(500),
-      watch('Debounced - events emitted in close time proximity are filtered out', watchInterval),
+      spy('Debounced - events emitted in close time proximity are filtered out'),
       tap(showLoading),
       switchMap(query => getCountries(query)),
       tap(hideLoading),
-      watch('Result', watchInterval),
+      spy('Result'),
       map(results => results.slice(0, 5)),
-      watch('Minimized result', watchInterval),
+      spy('Minimized result'),
       map(([query, ...countries]) => `Result for "${query}": ${countries.join(', ')}`),
-      watch('Displayed string', watchInterval)
+      spy('Displayed string')
     )
     .subscribe(x => displayResult(x));
 }
@@ -70,3 +68,5 @@ function getCountries(query) {
   const result = countries.map(x => x.name).filter(x => x.startsWith(query));
   return of([query, ...result]).pipe(delay(1000));
 }
+
+const spy = name => watch(name, 10);

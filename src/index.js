@@ -1,3 +1,3 @@
-import { run } from './transforming-streams';
+import { run } from './autocomplete';
 
 run();
