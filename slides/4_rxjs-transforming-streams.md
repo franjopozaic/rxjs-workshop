@@ -19,7 +19,7 @@ Map every emitter value: [map](https://rxjs-dev.firebaseapp.com/api/operators/ma
 
 ![](https://rxjs.dev/assets/images/marble-diagrams/map.png)
 
-Reduce: [scan](https://rxjs-dev.firebaseapp.com/api/operators/scan)
+Transform based on all emitted values: [scan](https://rxjs-dev.firebaseapp.com/api/operators/scan)
 
 #### Filtering
 
@@ -28,9 +28,6 @@ By value:
 ![](https://rxjs.dev/assets/images/marble-diagrams/filter.png)
 
 By order of appearance:  
-[first](https://rxjs-dev.firebaseapp.com/api/operators/first)  
-![](https://rxjs.dev/assets/images/marble-diagrams/first.png) 
-
 [take](https://rxjs-dev.firebaseapp.com/api/operators/take)  
 ![](https://rxjs-dev.firebaseapp.com/assets/images/marble-diagrams/take.png)
 
@@ -44,3 +41,32 @@ By comparing to previous values:
 By time passed between new values: 
 [debounceTime](https://rxjs-dev.firebaseapp.com/api/operators/debounceTime)
 ![](https://rxjs-dev.firebaseapp.com/assets/images/marble-diagrams/debounceTime.png)
+
+Sampling
+[sample](https://rxjs.dev/api/operators/sample)
+![](https://rxjs.dev/assets/images/marble-diagrams/sample.png)
+
+#### Combining streams
+
+[combineLatest](https://rxjs.dev/api/index/function/combineLatest)
+![](https://rxjs.dev/assets/images/marble-diagrams/combineLatest.png)
+
+#### Higher order observable transformations
+
+[switchMap](https://rxjs.dev/api/operators/switchMap)
+![](https://rxjs.dev/assets/images/marble-diagrams/switchMap.png)
+
+#### Time transformations
+
+[delay](https://rxjs.dev/api/operators/delay)
+![](https://rxjs.dev/assets/images/marble-diagrams/delay.png)
+
+#### Buffering
+
+[bufferCount](https://rxjs.dev/api/operators/bufferCount)
+![](https://rxjs.dev/assets/images/marble-diagrams/bufferCount.png)
+
+
+#### Perform side effects
+
+[tap](https://rxjs.dev/api/operators/tap)
