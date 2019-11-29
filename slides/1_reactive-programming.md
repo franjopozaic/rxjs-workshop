@@ -6,7 +6,9 @@
 
 What are streams?
 
-* Sequence of events happening over time
+* sequence of events happening over time
+* values over time
+* how many?
 
 ![](images/1_stream-diagram.png)
 
